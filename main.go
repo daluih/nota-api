@@ -3,8 +3,8 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"net/http"
+	"os"
 	"strings"
 )
 
@@ -26,8 +26,8 @@ type Nota struct {
 var notas []Nota
 
 func main() {
-	// lê o arquivo JSON
-	data, err := ioutil.ReadFile("itens.json")
+	// lê o arquivo JSON (substituição do ioutil.ReadFile)
+	data, err := os.ReadFile("itens.json")
 	if err != nil {
 		fmt.Println("Erro ao ler arquivo:", err)
 		return
